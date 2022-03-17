@@ -29,7 +29,7 @@ apt update
 apt install vim
 ```
 
-# Step 4
+# Step 4/5
 ## Configure Nginx for certbot domain validation (/etc/nginx/conf.d/default.conf)
 ```
 server {
@@ -46,8 +46,12 @@ server {
   }
 }
 ```
+Restart Nginx for changes to take effect:
+```
+nginx -s reload
+```
 
-# Step 5
+# Step 4/5
 ## Issue Let's Encrypt certificate using certbot/certbot docker image
 ```
 docker run -it --rm /
@@ -117,3 +121,7 @@ server {
   }
 }
 ```
+
+# Step 9
+## Configure auto-renewal of Let's Encrypt certificates
+...
