@@ -29,40 +29,7 @@ apt update
 apt install vim
 ```
 
-# Step 4/5
-## Configure Nginx for certbot domain validation (/etc/nginx/conf.d/default.conf)
-```
-server {
-  listen 80;
-  server_name your_domain_name;
-
-  location ~ /.well-known/acme-challenge/ {
-    return 200 'CERTBOT_VALIDATION_STRING';
-  }
-  
-  location ~ {
-    root   /usr/share/nginx/html;
-    index  index.html index.htm;
-  }
-}
-```
-Restart Nginx for changes to take effect:
-```
-nginx -s reload
-```
-
-# Step 4/5
-## Issue Let's Encrypt certificate using certbot/certbot docker image
-```
-docker run -it --rm /
--v "/etc/letsencrypt:/etc/letsencrypt" /
--v "/var/lib/letsencrypt:/var/lib/letsencrypt"
---name certbot /
-certbot/certbot /
-certonly --manual -d your_domain_name
-```
-
-# Step 6
+# Step 4
 ## Run backend applications in named containers
 We should use same ***userdefined*** network which we used for Nginx container.
 ```
@@ -111,17 +78,9 @@ server {
   ssl_certificate_key /etc/letsencrypt/live/your_domain_name/privkey.pem;
   ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
   
-  location ~ /.well-known/acme-challenge/ {
-    return 200 'CERTBOT_VALIDATION_STRING';
-  }
-  
   location ~ {
     root   /usr/share/nginx/html;
     index  index.html index.htm;
   }
 }
 ```
-
-# Step 9
-## Configure auto-renewal of Let's Encrypt certificates
-...
