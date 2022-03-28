@@ -38,7 +38,7 @@ docker run -d --network=userdefined --name local3001 testimage 3001
 docker run -d --network=userdefined --name local3002 testimage 3002
 ```
 
-# Step 7
+# Step 5
 ## Configure Nginx as reverse proxy (/etc/nginx/conf.d/default.conf)
 ```
 server {
@@ -66,7 +66,7 @@ server {
 }
 ```
 
-# Step 8
+# Step 6
 ## Configure Nginx for HTTPS connections (/etc/nginx/conf.d/default.conf)
 ```
 server {
