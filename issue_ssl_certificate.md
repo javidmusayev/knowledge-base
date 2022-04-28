@@ -5,4 +5,4 @@ docker run -it --rm --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" certbo
 docker run -it --rm --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" certbot/certbot certonly certonly --manual --preferred-challenges=dns -d your_domain_name --email your_email
 
 ## Convert pem certificate to pfx
-openssl pkcs12 -inkey .\privkey1.pem -in .\cert1.pem -export -out cert.pfx
+openssl pkcs12 -inkey privkey.pem -in cert.pem -export -out cert.pfx
