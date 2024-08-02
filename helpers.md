@@ -12,3 +12,12 @@ Action: clear unused docker volumes
 Command:
 du -h --max-depth=1 /var/lib/docker
 docker volume rm `docker volume ls -q -f dangling=true`
+
+Action: create user in linux with home directory in '/home' and with shell '/bin/bash'
+Command: useradd -m -s /bin/bash [username]
+
+Action: set password for linux user
+Command: passwd [username]
+
+Action: delete linux user with home directory
+Command: userdel -r [username]
