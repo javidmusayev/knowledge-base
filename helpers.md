@@ -9,9 +9,9 @@ Action: run sqlcmd tool and connect to mssql2017 with sa
 Command: docker run --rm --network=userdefined -it fabiang/sqlcmd -S mssql2017 -U sa
 
 Action: clear unused docker volumes  
-Command:
-du -h --max-depth=1 /var/lib/docker
-docker volume rm `docker volume ls -q -f dangling=true`
+Command:  
+- du -h --max-depth=1 /var/lib/docker  
+- docker volume rm `docker volume ls -q -f dangling=true`
 
 Action: create user in linux with home directory in '/home' and with shell '/bin/bash'  
 Command: useradd -m -s /bin/bash [username]  
