@@ -8,10 +8,11 @@ ssl_password_file /etc/ssl/private/ssl_passwords.txt
 Action: run sqlcmd tool and connect to mssql2017 with sa  
 Command: docker run --rm --network=userdefined -it fabiang/sqlcmd -S mssql2017 -U sa
 
-Action: clear unused docker volumes  
-Command:
-- du -h --max-depth=1 /var/lib/docker
-- docker volume rm `docker volume ls -q -f dangling=true`
+Action: delete garbage in docker registry  
+Command: docker exec -it -u root registry bin/registry garbage-collect --delete-untagged /etc/docker/registry/config.yml
+
+Action: show docker volumes with sizes  
+Command: docker system df -v | sed -n '/VOLUME NAME/,/^ *$/p'
 
 Action: create user in linux with home directory in '/home' and with shell '/bin/bash'  
 Command: useradd -m -s /bin/bash [username]  
