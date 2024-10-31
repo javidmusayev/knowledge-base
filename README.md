@@ -5,3 +5,4 @@ Configure Nginx as reverse proxy for containerized applications with SSL termina
 1. [Configure Nginx](/configure_nginx.md)
 2. [Issue SSL certificate](/issue_ssl_certificate.md)
 3. [Helpers](/helpers.md)
+4. [DigitalOcean incident actions](/do_incident_actions.md)
