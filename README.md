@@ -1,5 +1,5 @@
 # Purpose of this repo
-Configure Nginx as reverse proxy for containerized applications with SSL termination and etc.
+Store some scripts.
 
 # Table of Contents
 1. [Configure Nginx](/configure_nginx.md)
