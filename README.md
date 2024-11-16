@@ -6,3 +6,4 @@ Store some scripts.
 2. [Issue SSL certificate](/issue_ssl_certificate.md)
 3. [Helpers](/helpers.md)
 4. [DigitalOcean incident actions](/do_incident_actions.md)
+5. [Copy SSL certificate from one container to another](/Copy SSL certificate from one container to another.md)
